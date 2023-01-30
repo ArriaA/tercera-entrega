@@ -8,9 +8,20 @@ body {
     padding:5px;
 }
 
-.navbar ul{
+.navbar ul {
+    list-style:none;
     background-color:chartreuse;
     display:flex;
     justify-content: space-between;
+    text-decoration-line:none;
 
+}
+.navbar ul a:hover {
+    color:brown
+}
+
+.card {
+        background-color: rgb(203, 211, 195);
+        padding: 10px;
+        margin-bottom: 2px;
 }

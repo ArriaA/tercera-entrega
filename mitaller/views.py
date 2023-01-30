@@ -18,6 +18,21 @@ def proyectos(request):
     proyectos = Proyecto.objects.all()
     return render(request, 'proyectos/proyectos.html', {'proyectos': proyectos})
 
+def crear_proyecto(request):
+    if request.method == 'GET':
+        return render(request, 'proyectos/crear_proyecto.html', {'form': CrearNuevoProyecto()})
+    else:
+        Proyecto.objects.create(name=request.POST['name'])
+        return redirect('proyectos')
+
+
+def proyecto_detallado(request, id):
+    proyecto = get_object_or_404(Proyecto, id=id)
+    tareas = Tarea.objects.filter(Proyecto_id=id)
+    return render(request,'proyectos/detallado.html', {'proyecto': proyecto, 'tareas': tareas})
+
+
+
 
 def tareas(request):
  # tarea = Tarea.objects.get(title = title)
@@ -34,13 +49,6 @@ def obreros(request):
     obreros = Obrero.objects.all()
     return render(request, 'obreros/obreros.html', {'obreros': obreros})
 
-
-def crear_proyecto(request):
-    if request.method == 'GET':
-        return render(request, 'proyectos/crear_proyecto.html', {'form': CrearNuevoProyecto()})
-    else:
-        Proyecto.objects.create(name=request.POST['name'])
-        return redirect('proyectos')
 
 
 def crear_tarea(request):
@@ -63,18 +71,13 @@ def crear_obrero(request):
         return redirect('obreros')
 
 
-def crear_cliente(request):
+def crear_cliente(request) :
     if request.method == 'GET':
         return render(request, 'clientes/CrearNuevoCliente.html', {'form': CrearNuevoCliente()})
     else:
         Cliente.objects.create(nombre=request.POST['nombre'])
         return redirect('clientes')
 
-
-def proyecto_detallado(request, id):
-    proyecto = get_object_or_404(Proyecto, id=id)
-    print(proyecto)
-    return render(request,'proyectos/detallado.html')
 
 
 

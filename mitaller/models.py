@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-
+"""
 class Project(models.Model):
     name = models.CharField(max_length=30)
 
@@ -18,7 +18,7 @@ class Mecanico(models.Model):
     horahombre = models.IntegerField
     Task = models.ForeignKey(Task, on_delete=models.CASCADE)
 
-
+"""
 class Proyecto(models.Model):
     name = models.CharField(max_length=30)
 
