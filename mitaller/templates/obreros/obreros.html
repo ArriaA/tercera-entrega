@@ -1,0 +1,16 @@
+{% extends 'layouts/base.html' %}
+
+{% block contenido %}
+<h1>
+    Obreros :
+</h1>
+
+{% for obrero in obreros %}
+
+<h1>
+    {{obrero.nombre}}
+</h1>
+
+{% endfor %}
+
+{% endblock %}

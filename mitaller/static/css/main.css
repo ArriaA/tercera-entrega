@@ -1,0 +1,16 @@
+body {
+    background-color: blue;
+    color: aliceblue;
+}
+
+
+.navbar {
+    padding:5px;
+}
+
+.navbar ul{
+    background-color:chartreuse;
+    display:flex;
+    justify-content: space-between;
+
+}
